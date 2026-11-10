@@ -264,22 +264,125 @@ import 'dart:io';
 
 //CONTOH KE 2
 
-void main() {
-  var komputer1 = Komputer('Samsung', 'Hitam', 3000000);
+// void main() {
+//   var komputer1 = Komputer('Samsung', 'Hitam', 3000000);
 
-  komputer1.cetak();
+//   komputer1.cetak();
+// }
+
+// class Komputer {
+//   String merek;
+//   String warna;
+//   int harga;
+
+//   Komputer(this.merek, this.warna, this.harga);
+
+//   void cetak() {
+//     print('Merek : $merek');
+//     print('Warna : $warna');
+//     print('Harga : $harga');
+//   }
+// }
+
+//==============================================================================================
+//                            
+//                                        KOMBINASI
+
+//===============================================================================================
+
+void main() {
+  var toko1 = Toko('Toko Maju', 'Pontianak');
+
+  toko1.namaProduk.add('Laptop');
+  toko1.namaProduk.add('Keyboard');
+  toko1.namaProduk.add('Mouse');
+
+  toko1.stok.add(10);
+  toko1.stok.add(3);
+  toko1.stok.add(0);
+
+  toko1.harga.add(8000000);
+  toko1.harga.add(250000);
+  toko1.harga.add(150000);
+
+  var toko2 = Toko('Toko Jaya', 'Singkawang');
+
+  toko2.namaProduk.add('Monitor');
+  toko2.namaProduk.add('Printer');
+
+  toko2.stok.add(15);
+  toko2.stok.add(2);
+
+  toko2.harga.add(2000000);
+  toko2.harga.add(1500000);
+
+  var toko3 = Toko('Toko Sinar', 'Mempawah');
+
+  toko3.namaProduk.add('Flashdisk');
+
+  toko3.stok.add(5);
+  toko3.harga.add(100000);
+
+  List<Toko> daftarToko = [];
+  daftarToko.add(toko1);
+  daftarToko.add(toko2);
+  daftarToko.add(toko3);
+
+  for (int i = 0; i < daftarToko.length; i++) {
+    daftarToko[i].cetak();
+  }
 }
 
-class Komputer {
-  String merek;
-  String warna;
-  int harga;
+class Toko {
+  Map<String, String?> desc = {
+    'nama': null,
+    'kota': null
+  };
 
-  Komputer(this.merek, this.warna, this.harga);
+  List<String> namaProduk = [];
+  List<int> stok = [];
+  List<int> harga = [];
+
+  Toko(String nama, String kota) {
+    desc['nama'] = nama;
+    desc['kota'] = kota;
+  }
+
+  void garis() {
+    print('=====================================');
+  }
 
   void cetak() {
-    print('Merek : $merek');
-    print('Warna : $warna');
-    print('Harga : $harga');
+    garis();
+
+    print('Nama Toko : ${desc['nama'] ?? 'Belum diisi'}');
+    print('Kota      : ${desc['kota'] ?? 'Belum diisi'}');
+
+    int totalStok = 0;
+    int totalNilai = 0;
+
+    for (int i = 0; i < namaProduk.length; i++) {
+      print('-------------------------------------');
+
+      print('Produk ke-${i + 1}: ${namaProduk[i]}');
+      print('Stok          : ${stok[i]}');
+      print('Harga         : ${harga[i]}');
+
+      if (stok[i] >= 10) {
+        print('Status        : Stok Banyak');
+      } else if (stok[i] > 0) {
+        print('Status        : Stok Sedikit');
+      } else {
+        print('Status        : Habis');
+      }
+
+      totalStok += stok[i];
+      totalNilai += stok[i] * harga[i];
+    }
+
+    garis();
+
+    print('Total Stok  : $totalStok');
+    print('Total Nilai : $totalNilai');
   }
 }
