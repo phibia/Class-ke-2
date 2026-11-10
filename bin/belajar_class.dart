@@ -68,7 +68,7 @@ import 'dart:io';
 // }
 //===========================================================================================
 
-//              3. Lanjut Soal 3 — Class + Attribute + Object + Method + List
+//                       Class + Attribute + Object + Method + List
 
 //===========================================================================================
 
@@ -107,65 +107,179 @@ import 'dart:io';
 
 //===============================================================================================
 
+// void main() {
+//   var toko1 = Toko();
+//   toko1.desc['nama'] = 'Toko Maju';
+//   toko1.desc['kota'] = 'Pontianak';
+//   toko1.stok.add(10);
+//   toko1.stok.add(20);
+//   toko1.stok.add(30);
+//   toko1.harga.add(15000);
+//   toko1.harga.add(20000);
+//   toko1.harga.add(25000);
+
+//   var toko2 = Toko();
+//   toko2.desc['nama'] = 'Toko Jaya';
+//   // kota tidak diisi, jadi null
+//   toko2.stok.add(5);
+//   toko2.stok.add(15);
+//   toko2.harga.add(30000);
+//   toko2.harga.add(40000);
+
+//   var toko3 = Toko();
+//   toko3.desc['nama'] = 'Toko Sinar';
+//   toko3.desc['kota'] = 'Singkawang';
+//   // stok dan harga tidak diisi, jadi List kosong
+
+//   List<Toko> daftarToko = [];
+//   daftarToko.add(toko1);
+//   daftarToko.add(toko2);
+//   daftarToko.add(toko3);
+
+//   for (int i = 0; i < daftarToko.length; i++) {
+//     daftarToko[i].cetak();
+//   }
+// }
+
+// class Toko {
+//   Map<String, String?> desc = {'nama': null, 'kota': null};
+//   List<int> stok = [];
+//   List<int> harga = [];
+
+//   void garis() {
+//     print('=====================================');
+//   }
+
+//   void cetak() {
+//     garis();
+//     print('Nama  : ${desc['nama'] ?? 'Belum diisi'}');
+//     print('Kota  : ${desc['kota'] ?? 'Belum diisi'}');
+
+//     int total = 0; // di luar for
+
+//     for (int i = 0; i < stok.length; i++) {
+//       print('Stok ke-${i + 1}: ${stok[i]}');
+//       total += stok[i]; // ditambah, bukan ditimpa
+//     }
+
+//     for (int i = 0; i < harga.length; i++) {
+//       print('Harga ke-${i + 1}: ${harga[i]}');
+//     }
+
+//     print('Total stok: $total'); // sesudah for
+//   }
+// }
+
+// ==============================================================================================
+//                            
+//                                 If Else — Class + List + For
+
+//===============================================================================================
+
+// void main() {
+//   var mhs1 = Mahasiswa();
+//   mhs1.nama = 'Darly';
+//   mhs1.nilai = 85;
+
+//   var mhs2 = Mahasiswa();
+//   mhs2.nama = 'Hengky';
+//   mhs2.nilai = 60;
+
+//   var mhs3 = Mahasiswa();
+//   mhs3.nama = 'Reynathan';
+//   mhs3.nilai = 75;
+
+//   List<Mahasiswa> daftarMhs = [];
+//   daftarMhs.add(mhs1);
+//   daftarMhs.add(mhs2);
+//   daftarMhs.add(mhs3);
+
+//   for (int i = 0; i < daftarMhs.length; i++) {
+//     daftarMhs[i].cetak();
+//   }
+// }
+
+// class Mahasiswa {
+//   String? nama;
+//   int? nilai;
+
+//   void garis() {
+//     print('=====================================');
+//   }
+
+//   void cetak() {
+//     garis();
+//     print('Nama  : $nama');
+//     print('Nilai : $nilai');
+
+//     if (nilai! >= 70) {
+//       print('Status: Lulus');
+//     } else {
+//       print('Status: Tidak Lulus');
+//     }
+//   }
+// }
+
+//==============================================================================================
+//                            
+//                                 Constructor — Class + Object + Method
+
+//===============================================================================================
+
+//CONTOH KE 1
+
+// void main() {
+//   var komputer1 = Komputer('Samsung', 'Hitam', 3000000);
+//   var komputer2 = Komputer('ASUS', 'Putih', 5000000);
+//   var komputer3 = Komputer('Lenovo', 'Abu-abu', 4500000);
+
+//   List<Komputer> daftarKomputer = [];
+//   daftarKomputer.add(komputer1);
+//   daftarKomputer.add(komputer2);
+//   daftarKomputer.add(komputer3);
+
+//   for (int i = 0; i < daftarKomputer.length; i++) {
+//     daftarKomputer[i].cetak();
+//   }
+// }
+
+// class Komputer {
+//   String merek;
+//   String warna;
+//   int harga;
+
+//   Komputer(this.merek, this.warna, this.harga);
+
+//   void garis() {
+//     print('=====================================');
+//   }
+
+//   void cetak() {
+//     garis();
+//     print('Merek : $merek');
+//     print('Warna : $warna');
+//     print('Harga : $harga');
+//   }
+// }
+
+//CONTOH KE 2
+
 void main() {
-  var toko1 = Toko();
-  toko1.desc['nama'] = 'Toko Maju';
-  toko1.desc['kota'] = 'Pontianak';
-  toko1.stok.add(10);
-  toko1.stok.add(20);
-  toko1.stok.add(30);
-  toko1.harga.add(15000);
-  toko1.harga.add(20000);
-  toko1.harga.add(25000);
+  var komputer1 = Komputer('Samsung', 'Hitam', 3000000);
 
-  var toko2 = Toko();
-  toko2.desc['nama'] = 'Toko Jaya';
-  // kota tidak diisi, jadi null
-  toko2.stok.add(5);
-  toko2.stok.add(15);
-  toko2.harga.add(30000);
-  toko2.harga.add(40000);
-
-  var toko3 = Toko();
-  toko3.desc['nama'] = 'Toko Sinar';
-  toko3.desc['kota'] = 'Singkawang';
-  // stok dan harga tidak diisi, jadi List kosong
-
-  List<Toko> daftarToko = [];
-  daftarToko.add(toko1);
-  daftarToko.add(toko2);
-  daftarToko.add(toko3);
-
-  for (int i = 0; i < daftarToko.length; i++) {
-    daftarToko[i].cetak();
-  }
+  komputer1.cetak();
 }
 
-class Toko {
-  Map<String, String?> desc = {'nama': null, 'kota': null};
-  List<int> stok = [];
-  List<int> harga = [];
+class Komputer {
+  String merek;
+  String warna;
+  int harga;
 
-  void garis() {
-    print('=====================================');
-  }
+  Komputer(this.merek, this.warna, this.harga);
 
   void cetak() {
-    garis();
-    print('Nama  : ${desc['nama'] ?? 'Belum diisi'}');
-    print('Kota  : ${desc['kota'] ?? 'Belum diisi'}');
-
-    int total = 0; // di luar for
-
-    for (int i = 0; i < stok.length; i++) {
-      print('Stok ke-${i + 1}: ${stok[i]}');
-      total += stok[i]; // ditambah, bukan ditimpa
-    }
-
-    for (int i = 0; i < harga.length; i++) {
-      print('Harga ke-${i + 1}: ${harga[i]}');
-    }
-
-    print('Total stok: $total'); // sesudah for
+    print('Merek : $merek');
+    print('Warna : $warna');
+    print('Harga : $harga');
   }
 }
